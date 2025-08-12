@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Engineering Expertise Development - Bhutan</title>
+    <style>
+        :root {
+            --primary: #423D9B;
+            --secondary: #6251B5;
+            --body: #F2F2F2;
+            --text: #1D1D1B;
+            --secondary-dark: #2D1B47;
+            --orange: #F28C28;
+            --magenta: #E81C64;
+            --dark-teal: #0E4C68;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--body);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .project-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .project-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .project-category {
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .banner-accent {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .accent-dot {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+        }
+
+        .accent-orange { background: var(--orange); }
+        .accent-magenta { background: var(--magenta); }
+        .accent-teal { background: var(--dark-teal); }
+
+        /* Bhutan Flag Element */
+        .bhutan-highlight {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 3rem;
+            opacity: 0.7;
+        }
+
+        /* Logos Section */
+        .logos-section {
+            background: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logos-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            height: 80px;
+            object-fit: contain;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+            filter: brightness(1.1);
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--secondary-dark);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background-color: var(--primary);
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .section-title {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            transform: perspective(1000px) rotateX(0deg);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: perspective(1000px) rotateX(5deg);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* DrukREN Highlight */
+        .drukren-highlight {
+            background: linear-gradient(135deg, rgba(66, 61, 155, 0.1), rgba(98, 81, 181, 0.1));
+            border: 2px solid var(--secondary);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .drukren-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .drukren-description {
+            color: var(--secondary-dark);
+            font-size: 1.1rem;
+        }
+
+        /* Training Programs Grid */
+        .training-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .training-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-top: 4px solid var(--primary);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .training-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .training-card:nth-child(1) { border-top-color: var(--primary); }
+        .training-card:nth-child(2) { border-top-color: var(--orange); }
+        .training-card:nth-child(3) { border-top-color: var(--magenta); }
+
+        .training-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .training-title {
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .training-location {
+            background: var(--secondary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .training-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .training-stat {
+            text-align: center;
+        }
+
+        .training-stat-number {
+            font-weight: bold;
+            color: var(--primary);
+            display: block;
+        }
+
+        .training-stat-label {
+            font-size: 0.8rem;
+            color: var(--secondary-dark);
+        }
+
+        /* Partners Grid */
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .partner-card {
+            background: var(--body);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .partner-card:hover {
+            border-left-color: var(--secondary);
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .partner-name {
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .partner-type {
+            color: var(--secondary-dark);
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+
+        /* Activities Grid */
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .activity-card {
+            background: linear-gradient(135deg, rgba(66, 61, 155, 0.05), rgba(98, 81, 181, 0.05));
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .activity-title {
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        /* Outcomes with Network Theme */
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .outcome-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .outcome-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .outcome-card:nth-child(2n) { border-left-color: var(--orange); }
+        .outcome-card:nth-child(3n) { border-left-color: var(--magenta); }
+        .outcome-card:nth-child(4n) { border-left-color: var(--dark-teal); }
+
+        .outcome-title {
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        /* Technical Skills Focus */
+        .skills-highlight {
+            background: linear-gradient(135deg, rgba(242, 140, 40, 0.1), rgba(14, 76, 104, 0.1));
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .skill-tag {
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--secondary);
+            transform: scale(1.05);
+        }
+
+        /* Challenges Section */
+        .challenges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .challenge-card {
+            background: linear-gradient(135deg, rgba(45, 27, 71, 0.05), rgba(66, 61, 155, 0.05));
+            border-radius: 10px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--secondary-dark);
+        }
+
+        .challenge-title {
+            color: var(--secondary-dark);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        /* SDG Tags */
+        .sdg-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .sdg-tag {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .logos-container {
+                gap: 1.5rem;
+            }
+
+            .logo {
+                height: 60px;
+            }
+
+            .nav-container {
+                gap: 1rem;
+            }
+
+            .banner-accent {
+                top: 10px;
+                right: 10px;
+            }
+
+            .accent-dot {
+                width: 12px;
+                height: 12px;
+            }
+
+            .bhutan-highlight {
+                font-size: 2rem;
+                bottom: 10px;
+                right: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .training-grid, .activities-grid, .outcomes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section:nth-child(even) { animation-delay: 0.2s; }
+        .section:nth-child(odd) { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="banner-accent">
+            <div class="accent-dot accent-orange"></div>
+            <div class="accent-dot accent-magenta"></div>
+            <div class="accent-dot accent-teal"></div>
+        </div>
+        <div class="bhutan-highlight">🇧🇹</div>
+        <div class="container">
+            <div class="header-content">
+                <div class="project-category">WP2 - Targeted Call</div>
+                <h1 class="project-title">Network Engineering Expertise</h1>
+                <p class="project-subtitle">Develop Local Network & Systems Engineering Expertise in Research & Education Institutes of Bhutan</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="logos-section">
+        <div class="container">
+            <div class="logos-container">
+                <img src="images/logos/tein-logo.png" alt="TEIN Cooperation Center" class="logo">
+                <img src="images/logos/asia-connect-logo.png" alt="Asi@Connect" class="logo">
+                <img src="images/logos/eu-logo.png" alt="European Union" class="logo">
+            </div>
+        </div>
+    </section>
+
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <a href="#overview" class="nav-link">Overview</a>
+                <a href="#training" class="nav-link">Training</a>
+                <a href="#partners" class="nav-link">Partners</a>
+                <a href="#activities" class="nav-link">Activities</a>
+                <a href="#outcomes" class="nav-link">Outcomes</a>
+                <a href="#future" class="nav-link">Future</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <section id="overview" class="section fade-in">
+                <h2 class="section-title">Project Overview</h2>
+                <p>The project aimed to strengthen technical capacity across Bhutan's DrukREN member institutions. With over 200 connected agencies, many lacked the skills and infrastructure to fully utilize DrukREN's high-speed network. Through Train-the-Trainers (TTT) programs and capacity-building workshops, the project focused on CCNA, CCNP, IPv6 deployment, and network automation.</p>
+                
+                <div class="drukren-highlight">
+                    <div class="drukren-title">🌐 DrukREN Network</div>
+                    <div class="drukren-description">
+                        Bhutan's national research and education network connecting over 200 institutions across the country
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">40</span>
+                        <span class="stat-label">Total Participants</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">2</span>
+                        <span class="stat-label">CCNA Certified</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">200+</span>
+                        <span class="stat-label">Institutions Connected</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">5</span>
+                        <span class="stat-label">Days Workshop</span>
+                    </div>
+                </div>
+
+                <div class="skills-highlight">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Key Technical Skills Developed</h3>
+                    <div class="skills-grid">
+                        <div class="skill-tag">CCNA</div>
+                        <div class="skill-tag">CCNP</div>
+                        <div class="skill-tag">IPv6 Deployment</div>
+                        <div class="skill-tag">Network Automation</div>
+                        <div class="skill-tag">L1-L3 Networking</div>
+                        <div class="skill-tag">Troubleshooting</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="training" class="section fade-in">
+                <h2 class="section-title">Training Programs</h2>
+                
+                <div class="training-grid">
+                    <div class="training-card">
+                        <span class="training-icon">👨‍🏫</span>
+                        <div class="training-title">Train the Trainers (TTT)</div>
+                        <div class="training-location">Bangkok, Thailand</div>
+                        <p>Intensive CCNA and CCNP training for DrukREN engineers to build advanced skills in network design, configuration, management, and troubleshooting.</p>
+                        <div class="training-stats">
+                            <div class="training-stat">
+                                <span class="training-stat-number">10</span>
+                                <span class="training-stat-label">Engineers</span>
+                            </div>
+                            <div class="training-stat">
+                                <span class="training-stat-number">2</span>
+                                <span class="training-stat-label">Certified</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="training-card">
+                        <span class="training-icon">🎓</span>
+                        <div class="training-title">Capacity Building Workshop</div>
+                        <div class="training-location">Paro, Bhutan</div>
+                        <p>Five-day workshop training 30 network administrators from DrukREN member institutions in L1-L3 networking, IPv6 deployment, and network automation.</p>
+                        <div class="training-stats">
+                            <div class="training-stat">
+                                <span class="training-stat-number">30</span>
+                                <span class="training-stat-label">Admins</span>
+                            </div>
+                            <div class="training-stat">
+                                <span class="training-stat-number">5</span>
+                                <span class="training-stat-label">Days</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="training-card">
+                        <span class="training-icon">🔬</span>
+                        <div class="training-title">Hands-on Lab Sessions</div>
+                        <div class="training-location">Practical Training</div>
+                        <p>Participants configured routers, switches, and security settings, applying knowledge to real-world networking scenarios and troubleshooting tasks.</p>
+                        <div class="training-stats">
+                            <div class="training-stat">
+                                <span class="training-stat-number">100%</span>
+                                <span class="training-stat-label">Practical</span>
+                            </div>
+                            <div class="training-stat">
+                                <span class="training-stat-number">Real</span>
+                                <span class="training-stat-label">Scenarios</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="partners" class="section fade-in">
+                <h2 class="section-title">Partner Organizations</h2>
+                
+                <div class="partners-grid">
+                    <div class="partner-card">
+                        <div class="partner-name">Department of Information Technology & Telecom (DITT)</div>
+                        <div class="partner-type">Ministry of Information and Communications, Royal Government of Bhutan</div>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-name">Government Technology Agency (GovTech)</div>
+                        <div class="partner-type">Royal Government of Bhutan</div>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-name">Druk Research and Education Network (DrukREN)</div>
+                        <div class="partner-type">National R&E Network</div>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-name">Network Training Center (NTC)</div>
+                        <div class="partner-type">Bangkok, Thailand - Training Provider</div>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-name">Bhutan Network Operators Group (btNOG)</div>
+                        <div class="partner-type">Professional Network Community</div>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-name">Ministry of Education and Skills Development</div>
+                        <div class="partner-type">Royal Government of Bhutan</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="activities" class="section fade-in">
+                <h2 class="section-title">Activities Conducted</h2>
+                
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <div class="activity-title">Train the Trainers Program</div>
+                        <p>Ten DrukREN engineers attended intensive CCNA and CCNP training in Bangkok to build advanced skills for national infrastructure improvement.</p>
+                    </div>
+                    
+                    <div class="activity-card">
+                        <div class="activity-title">CCNA Certification Support</div>
+                        <p>Two participants successfully passed the CCNA certification exam, validating their technical competencies for supporting DrukREN operations.</p>
+                    </div>
+                    
+                    <div class="activity-card">
+                        <div class="activity-title">Five-Day Technical Workshop</div>
+                        <p>Workshop in Paro trained 30 network administrators in L1-L3 networking, IPv6 deployment, and network automation with lectures and labs.</p>
+                    </div>
+                    
+                    <div class="activity-card">
+                        <div class="activity-title">Practical Laboratory Sessions</div>
+                        <p>Hands-on labs where participants configured routers, switches, and security settings for real-world networking scenarios.</p>
+                    </div>
+                    
+                    <div class="activity-card">
+                        <div class="activity-title">btNOG-10 Collaboration</div>
+                        <p>Partnership with btNOG-10 featured expert trainers and facilitated regional collaboration to enhance Bhutan's networking capacity.</p>
+                    </div>
+                    
+                    <div class="activity-card">
+                        <div class="activity-title">Visibility and Outreach</div>
+                        <p>Project promoted through social media, banners, photography, and videos via DrukREN website and Facebook page.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="outcomes" class="section fade-in">
+                <h2 class="section-title">Key Outcomes</h2>
+                
+                <div class="outcomes-grid">
+                    <div class="outcome-card">
+                        <div class="outcome-title">DrukREN Engineers Trained</div>
+                        <p>10 engineers attended CCNA and CCNP training in Bangkok, strengthening skills in managing and troubleshooting networks.</p>
+                    </div>
+                    
+                    <div class="outcome-card">
+                        <div class="outcome-title">Professional Certification Achievement</div>
+                        <p>2 engineers passed the CCNA exam, officially validating their networking knowledge and supporting institutional operations.</p>
+                    </div>
+                    
+                    <div class="outcome-card">
+                        <div class="outcome-title">Network Administrators Capacity</div>
+                        <p>30 administrators received essential training in networking fundamentals, IPv6 deployment, and network automation through five-day workshop.</p>
+                    </div>
+                    
+                    <div class="outcome-card">
+                        <div class="outcome-title">Practical Skills Development</div>
+                        <p>Participants engaged in hands-on labs applying routing, switching, VLAN, and troubleshooting concepts in real scenarios.</p>
+                    </div>
+                    
+                    <div class="outcome-card">
+                        <div class="outcome-title">Training Resources Created</div>
+                        <p>Workshop manuals, guides, and lab resources developed to enable continuous training within DrukREN institutions.</p>
+                    </div>
+                    
+                    <div class="outcome-card">
+                        <div class="outcome-title">Enhanced Public Engagement</div>
+                        <p>Project activities shared through banners, videos, website posts, and social media to increase visibility and awareness.</p>
+                    </div>
+                    
+                    <div class="outcome-card">
+                        <div class="outcome-title">Comprehensive Documentation</div>
+                        <p>Detailed final report capturing project implementation, outcomes, and financials submitted to TEIN*CC.</p>
+                    </div>
+                </div>
+
+                <h3 style="color: var(--secondary); margin: 2rem 0 1rem;">Relevant SDGs</h3>
+                <div class="sdg-tags">
+                    <span class="sdg-tag">SDG 4: Quality Education</span>
+                    <span class="sdg-tag">SDG 9: Industry, Innovation and Infrastructure</span>
+                    <span class="sdg-tag">SDG 17: Partnerships for the Goals</span>
+                </div>
+            </section>
+
+            <section id="future" class="section fade-in">
+                <h2 class="section-title">Challenges & Future Directions</h2>
+                
+                <h3 style="color: var(--secondary); margin: 2rem 0 1rem;">Challenges Encountered</h3>
+                <div class="challenges-grid">
+                    <div class="challenge-card">
+                        <div class="challenge-title">Limited Technical Skills</div>
+                        <p>Many new DrukREN member institutions lacked skilled personnel to manage and troubleshoot campus networks effectively.</p>
+                    </div>
+                    
+                    <div class="challenge-card">
+                        <div class="challenge-title">Lack of Local Training Resources</div>
+                        <p>Absence of structured, in-country technical training made skill development dependent on international programs.</p>
+                    </div>
+                    
+                    <div class="challenge-card">
+                        <div class="challenge-title">High Dependency on External Trainers</div>
+                        <p>Reliance on overseas trainers increased project costs and made future sustainability challenging.</p>
+                    </div>
+                    
+                    <div class="challenge-card">
+                        <div class="challenge-title">Budget Constraints</div>
+                        <p>Limited funding restricted the scale of training and number of participants that could be accommodated.</p>
+                    </div>
+                    
+                    <div class="challenge-card">
+                        <div class="challenge-title">Administrative Delays</div>
+                        <p>Procurement and coordination processes took longer than expected, affecting timely execution of activities.</p>
+                    </div>
+                    
+                    <div class="challenge-card">
+                        <div class="challenge-title">Infrastructure Gaps</div>
+                        <p>Some institutions lacked necessary hardware and stable connectivity to fully utilize DrukREN services.</p>
+                    </div>
+                    
+                    <div class="challenge-card">
+                        <div class="challenge-title">Uneven Skill Levels</div>
+                        <p>Varied technical backgrounds made it difficult to deliver uniformly paced training for all attendees.</p>
+                    </div>
+                </div>
+
+                <h3 style="color: var(--secondary); margin: 2rem 0 1rem;">Future Directions</h3>
+                <ul style="margin-left: 2rem; line-height: 2;">
+                    <li><strong>Expand Local Training Programs:</strong> Establish regular in-country training sessions to build local expertise and reduce dependence on international trainers</li>
+                    <li><strong>Upgrade Campus Infrastructure:</strong> Assist institutions in enhancing internal networks for better performance and full DrukREN utilization</li>
+                    <li><strong>Encourage Professional Certification:</strong> Support staff in achieving certifications like CCNA and CCNP to standardize technical capacity</li>
+                    <li><strong>National Training Hub:</strong> Create a permanent center to deliver hands-on training and serve as a resource for DrukREN members</li>
+                    <li><strong>Peer Learning Networks:</strong> Encourage collaboration and knowledge-sharing among institutions to solve common challenges</li>
+                    <li><strong>Increase Female Participation:</strong> Design inclusive programs to attract more women to networking and technical training opportunities</li>
+                    <li><strong>Improve Support Systems:</strong> Implement centralized tools and remote support teams for troubleshooting and optimization</li>
+                </ul>
+
+                <div style="background: linear-gradient(135deg, rgba(242, 140, 40, 0.1), rgba(14, 76, 104, 0.1)); border-radius: 15px; padding: 2rem; margin: 2rem 0; text-align: center;">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">🎯 Vision for Bhutan's Digital Future</h3>
+                    <p style="color: var(--secondary-dark); font-size: 1.1rem;">Building a skilled workforce to support Bhutan's digital transformation through comprehensive network engineering expertise and sustainable local capacity development.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Network Engineering Expertise Development Project. Strengthening Bhutan's research and education network infrastructure.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for fade-in animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add active state to navigation links
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section[id]');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
